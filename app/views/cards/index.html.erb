@@ -1,3 +1,19 @@
 Hello World!
 
 <%= Time.now%>
+<table>
+<thead>
+    <tr>
+        <th>Terms</th>
+        <th>Definition</th>
+    </tr>
+</thead>
+<tbody>
+<% @cards.each do |card|%>
+    <tr>
+    <td><%= card.term %></td>
+    <td><%= card.definition%></td>
+    </tr>
+<%end%>
+</tbody>
+</table>
