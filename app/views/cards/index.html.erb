@@ -6,13 +6,26 @@ Hello World!
     <tr>
         <th>Terms</th>
         <th>Definition</th>
+        <th>Actions</th>
     </tr>
 </thead>
 <tbody>
 <% @cards.each do |card|%>
     <tr>
-    <td><%= card.term %></td>
+    <td>
+    <%= link_to card.term, card_path(card) %>
+    <!-- <a href="<%=card_path(card) %>" > <%=card.term %>  </a> -->
+    </td>
     <td><%= card.definition%></td>
+    <td>
+    <%= link_to "edit", edit_card_path(card) %>
+    </td>
+    <td>
+    <%= link_to "delete", card_path(card), data:{
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure you want to remove this record?"
+                } %>
+    </td>
     </tr>
 <%end%>
 </tbody>
